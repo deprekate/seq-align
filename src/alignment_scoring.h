@@ -77,6 +77,7 @@ void scoring_system_PAM30(scoring_t *scoring);
 void scoring_system_PAM70(scoring_t *scoring);
 void scoring_system_BLOSUM80(scoring_t *scoring);
 void scoring_system_BLOSUM62(scoring_t *scoring);
+void scoring_system_BLOSUM50(scoring_t *scoring);
 void scoring_system_DNA_hybridization(scoring_t *scoring);
 void scoring_system_default(scoring_t *scoring); // DNA/RNA default
 

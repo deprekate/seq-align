@@ -106,7 +106,7 @@ static void print_usage(enum SeqAlignCmdType cmd_type, score_t defaults[4],
 "    --gapopen <score>    [default: %i]\n"
 "    --gapextend <score>  [default: %i]\n"
 "\n"
-"    --scoring <PAM30|PAM70|BLOSUM80|BLOSUM62>\n"
+"    --scoring <PAM30|PAM70|BLOSUM80|BLOSUM62|BLOSUM50>\n"
 "    --substitution_matrix <file>  see details for formatting\n"
 "    --substitution_pairs <file>   see details for formatting\n"
 "\n"
@@ -235,13 +235,17 @@ cmdline_t* cmdline_new(int argc, char **argv, scoring_t *scoring,
       {
         scoring_system_BLOSUM62(scoring);
       }
+      else if(strcasecmp(argv[argi+1], "BLOSUM50") == 0)
+      {
+        scoring_system_BLOSUM50(scoring);
+      }
       else if(strcasecmp(argv[argi+1], "DNA_HYBRIDIZATION") == 0)
       {
         scoring_system_DNA_hybridization(scoring);
       }
       else {
         usage("Unknown --scoring choice, not one of "
-              "PAM30|PAM70|BLOSUM80|BLOSUM62");
+              "PAM30|PAM70|BLOSUM80|BLOSUM62|BLOSUM50");
       }
 
       scoring_set = 1;
