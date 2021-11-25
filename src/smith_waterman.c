@@ -213,7 +213,8 @@ static char _follow_hit(sw_aligner_t* sw, size_t arr_index,
 
   // Now follow backwards again to create alignment!
   unsigned int i;
-
+  unsigned int j;
+  j = 0;
   for(i = length-1; curr_score > 0; i--)
   {
     switch(curr_matrix)
@@ -221,6 +222,7 @@ static char _follow_hit(sw_aligner_t* sw, size_t arr_index,
       case MATCH:
         result->result_a[i] = aligner->seq_a[score_x-1];
         result->result_b[i] = aligner->seq_b[score_y-1];
+		if(result->result_a[i] == result->result_b[i]) { j++; }
         break;
 
       case GAP_A:
@@ -247,6 +249,8 @@ static char _follow_hit(sw_aligner_t* sw, size_t arr_index,
   result->result_b[length] = '\0';
 
   result->score = end_score;
+
+  result->pid =  100.0 * j / length;
 
   result->pos_a = score_x;
   result->pos_b = score_y;

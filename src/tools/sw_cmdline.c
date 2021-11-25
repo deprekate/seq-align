@@ -216,7 +216,8 @@ void align(const char *seq_a, const char *seq_b,
         (!cmd->max_hits_per_alignment_set ||
          hit_index < cmd->max_hits_per_alignment))
   {
-    printf("hit %zu.%zu score: %i\n", alignment_index, hit_index++, result->score);
+    printf("hit %zu.%zu score: %i; %.1f%% identity\n", alignment_index, hit_index++, result->score,
+			result->pid);
 
     if(cmd->print_context)
     {

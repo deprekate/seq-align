@@ -213,6 +213,7 @@ alignment_t* alignment_create(size_t capacity)
   result->result_a[0] = result->result_b[0] = '\0';
   result->pos_a = result->pos_b = result->len_a = result->len_b = 0;
   result->score = 0;
+  result->pid = 0.0;
   return result;
 }
 

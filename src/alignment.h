@@ -37,6 +37,7 @@ typedef struct
   size_t pos_a, pos_b; // position of first base (0-based)
   size_t len_a, len_b; // number of bases in alignment
   score_t score;
+  float pid;
 } alignment_t;
 
 // Matrix names
